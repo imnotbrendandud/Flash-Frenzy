@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\czeka\\.nuget\\packages\\": {}
+    "C:\\Users\\jolin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+      "projectUniqueName": "C:\\Users\\jolin\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
       "projectName": "FlashFrenzy",
-      "projectPath": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
-      "packagesPath": "C:\\Users\\czeka\\.nuget\\packages\\",
-      "outputPath": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
+      "projectPath": "C:\\Users\\jolin\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+      "packagesPath": "C:\\Users\\jolin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jolin\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\czeka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jolin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
