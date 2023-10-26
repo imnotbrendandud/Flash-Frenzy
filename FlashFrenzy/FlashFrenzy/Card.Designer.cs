@@ -34,6 +34,7 @@
             button4 = new Button();
             button5 = new Button();
             checkBox1 = new CheckBox();
+            button6 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -89,7 +90,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(1026, 652);
+            checkBox1.Location = new Point(12, 12);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(127, 29);
             checkBox1.TabIndex = 5;
@@ -97,11 +98,22 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // button6
+            // 
+            button6.Location = new Point(1047, 639);
+            button6.Name = "button6";
+            button6.Size = new Size(112, 34);
+            button6.TabIndex = 6;
+            button6.Text = "Back";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Card
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1187, 702);
+            Controls.Add(button6);
             Controls.Add(checkBox1);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -122,5 +134,6 @@
         private Button button4;
         private Button button5;
         private CheckBox checkBox1;
+        private Button button6;
     }
 }
