@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FlashFrenzy",
+    "\\FlashFrenzy\\FlashFrenzy"
   ],
-  "SelectedNode": "\\FlashFrenzy.sln",
+  "SelectedNode": "\\FlashFrenzy\\FlashFrenzy\\Home.cs",
   "PreviewInSolutionExplorer": false
 }
