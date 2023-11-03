@@ -8,8 +8,12 @@ namespace FlashFrenzy
 {
     public partial class Card : Form
     {
-        CardInfo card1 = new CardInfo("2 + 2", "4");
+
+        public static Card cardInstance = new Card();
+
         //More cards will be added here, but will be uploaded through a local file (which will be read in).
+        CardInfo card1 = new CardInfo(AddCard.addedTerm, AddCard.addedDefinition);
+
         public Card()
         {
             InitializeComponent(); //Initializes the card.
@@ -17,7 +21,9 @@ namespace FlashFrenzy
             button2.Hide(); button3.Hide(); button4.Hide(); button5.Hide(); //Hides definition side buttons.
             button1.Font = new Font(button1.Font.FontFamily, 32); //Edits the font of the word side of a card.
             button2.Font = new Font(button1.Font.FontFamily, 24); //Edits the font of the definition side of a card.
-            button1.Text = card1.word; //Displays the word grabbed from class CardInfo.
+            button1.Text = card1.word;  //Displays the word grabbed from class CardInfo.
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

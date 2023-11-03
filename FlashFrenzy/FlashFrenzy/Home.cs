@@ -15,6 +15,7 @@ namespace FlashFrenzy
         public Home()
         {
             InitializeComponent();
+
             this.Text = "Home";
 
             listBox1.Items.Add("1");
@@ -24,9 +25,9 @@ namespace FlashFrenzy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SelectDeck nextForm = new SelectDeck();
+            SelectDeck selectDeck = new SelectDeck();
             this.Hide();
-            nextForm.Show();
+            selectDeck.Show();
             /*Security:
              * This is the primary security aspect we implemented after the code was developed.
              * When the user transitions between the home page to the card, the card form is opened, but before, the home form stayed open.

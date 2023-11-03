@@ -14,7 +14,6 @@ namespace FlashFrenzy
             Application.Run(new Home());
         }
 
-
         public class CardInfo
         {
             public string word { get; set; }

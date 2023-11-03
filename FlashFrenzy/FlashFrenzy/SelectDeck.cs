@@ -12,11 +12,16 @@ namespace FlashFrenzy
 {
     public partial class SelectDeck : Form
     {
+
+        public static SelectDeck selectDeckInstance = new SelectDeck();
+
         public SelectDeck()
         {
             //To be implemented in the next sprint.
             InitializeComponent();
             this.Text = "Select Deck";
+            dataGridView1.Rows.Add(AddCard.addedTerm);
+            dataGridView1.Rows.Add(AddCard.addedDefinition);
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -51,7 +56,7 @@ namespace FlashFrenzy
                 ofd.Title = "Choose the file";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    FileName_LBL.Text = ofd.FileName;
+                    //FileName_LBL.Text = ofd.FileName;
                 }
             }
         }
@@ -63,7 +68,7 @@ namespace FlashFrenzy
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel.Application xlapp;
+            /*Microsoft.Office.Interop.Excel.Application xlapp;
             Microsoft.Office.Interop.Excel.Workbook xlworkbook;
             Microsoft.Office.Interop.Excel.Worksheet xlworksheet;
             Microsoft.Office.Interop.Excel.Range xlrange;
@@ -74,11 +79,11 @@ namespace FlashFrenzy
                 xlworksheet = (Microsoft.Office.Interop.Excel.Worksheet)xlworkbook.Worksheets["Sheet1"];
                 xlrange = xlworksheet.UsedRange;
 
-                for( int xlrow =1; xlrow <= xlrange.Rows.Count; xlrow++ ) 
+                for (int xlrow = 1; xlrow <= xlrange.Rows.Count; xlrow++)
                 {
                     dataGridView1.Rows.Add
                         (
-                            xlrange.Cells[xlrow,1].ToString
+                            xlrange.Cells[xlrow, 1].ToString
                             );
                 }
                 xlworkbook.Close();
@@ -87,7 +92,14 @@ namespace FlashFrenzy
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddCard nextForm = new AddCard();
+            nextForm.Show();
+            this.Hide();
         }
     }
 }
