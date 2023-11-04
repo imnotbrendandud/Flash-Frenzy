@@ -12,7 +12,10 @@ namespace FlashFrenzy
 {
     public partial class SelectDeck : Form
     {
+        // The current deck selected
         public static Deck currentDeck;
+
+        // Number of cards in the deck
         public int numCards = 0;
 
         public SelectDeck(Deck selectedDeck)
@@ -22,6 +25,7 @@ namespace FlashFrenzy
             label2.Text = selectedDeck.GetName();
             this.Text = selectedDeck.GetName();
 
+            // Load each card into the data grid view
             foreach (Card card in selectedDeck.cards)
             {
                 dataGridView1.Rows.Add(numCards++, card.word, card.definition, card.mastery);
@@ -53,6 +57,7 @@ namespace FlashFrenzy
 
         }
 
+        // Exporting
         private void button7_Click(object sender, EventArgs e)
         {
             Stream myStream;
@@ -112,6 +117,7 @@ namespace FlashFrenzy
 
         }
 
+        // Importing
         private void button8_Click(object sender, EventArgs e)
         {
             dataGridView1.Refresh();
