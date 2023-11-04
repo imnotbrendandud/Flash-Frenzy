@@ -37,16 +37,19 @@
             // 
             // addCardTerm
             // 
-            addCardTerm.Location = new Point(315, 77);
+            addCardTerm.Location = new Point(220, 46);
+            addCardTerm.Margin = new Padding(2, 2, 2, 2);
             addCardTerm.Name = "addCardTerm";
-            addCardTerm.Size = new Size(230, 31);
+            addCardTerm.Size = new Size(162, 23);
             addCardTerm.TabIndex = 0;
+            addCardTerm.TextChanged += addCardTerm_TextChanged;
             // 
             // button1
             // 
-            button1.Location = new Point(371, 344);
+            button1.Location = new Point(260, 206);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(78, 20);
             button1.TabIndex = 2;
             button1.Text = "Add Card";
             button1.UseVisualStyleBackColor = true;
@@ -54,40 +57,44 @@
             // 
             // addCardDefinition
             // 
-            addCardDefinition.Location = new Point(315, 153);
+            addCardDefinition.Location = new Point(220, 92);
+            addCardDefinition.Margin = new Padding(2, 2, 2, 2);
             addCardDefinition.Name = "addCardDefinition";
-            addCardDefinition.Size = new Size(230, 144);
+            addCardDefinition.Size = new Size(162, 88);
             addCardDefinition.TabIndex = 3;
             addCardDefinition.Text = "";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(231, 80);
+            label1.Location = new Point(162, 48);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(54, 25);
+            label1.Size = new Size(36, 15);
             label1.TabIndex = 4;
             label1.Text = "Term:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(192, 153);
+            label2.Location = new Point(134, 92);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(93, 25);
+            label2.Size = new Size(62, 15);
             label2.TabIndex = 5;
             label2.Text = "Definition:";
             // 
             // AddCard
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(560, 270);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(addCardDefinition);
             Controls.Add(button1);
             Controls.Add(addCardTerm);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AddCard";
             Text = "AddCard";
             ResumeLayout(false);

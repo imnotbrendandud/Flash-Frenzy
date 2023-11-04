@@ -12,16 +12,22 @@ namespace FlashFrenzy
 {
     public partial class SelectDeck : Form
     {
+        public static Deck currentDeck;
 
-        public static SelectDeck selectDeckInstance = new SelectDeck();
-
-        public SelectDeck()
+        public SelectDeck(Deck selectedDeck)
         {
             //To be implemented in the next sprint.
             InitializeComponent();
-            this.Text = "Select Deck";
-            dataGridView1.Rows.Add(AddCard.addedTerm);
-            dataGridView1.Rows.Add(AddCard.addedDefinition);
+            label2.Text = selectedDeck.GetName();
+            this.Text = selectedDeck.GetName();
+
+            foreach (Card card in selectedDeck.cards)
+            {
+                dataGridView1.Rows.Add(card.word);
+                dataGridView1.Rows.Add(card.definition);
+            }
+
+            currentDeck = selectedDeck;
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -97,7 +103,7 @@ namespace FlashFrenzy
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AddCard nextForm = new AddCard();
+            AddCard nextForm = new AddCard(currentDeck);
             nextForm.Show();
             this.Hide();
         }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jolin\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {}
+    "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jolin\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {
+    "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jolin\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+        "projectUniqueName": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
         "projectName": "FlashFrenzy",
-        "projectPath": "C:\\Users\\jolin\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
-        "packagesPath": "C:\\Users\\jolin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jolin\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
+        "projectPath": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+        "packagesPath": "C:\\Users\\czeka\\.nuget\\packages\\",
+        "outputPath": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jolin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\czeka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

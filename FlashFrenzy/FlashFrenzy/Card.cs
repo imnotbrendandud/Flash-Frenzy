@@ -8,11 +8,12 @@ namespace FlashFrenzy
 {
     public partial class Card : Form
     {
+        //More cards will be added here, but will be uploaded through a local file (which will be read in).
+        public string word { get; set; }
+        public string definition { get; set; }
+        public int confidence { get; set; } //Ranges from 1 to 10 (1 being the least amount of knowledge).
 
         public static Card cardInstance = new Card();
-
-        //More cards will be added here, but will be uploaded through a local file (which will be read in).
-        CardInfo card1 = new CardInfo(AddCard.addedTerm, AddCard.addedDefinition);
 
         public Card()
         {
@@ -21,7 +22,7 @@ namespace FlashFrenzy
             button2.Hide(); button3.Hide(); button4.Hide(); button5.Hide(); //Hides definition side buttons.
             button1.Font = new Font(button1.Font.FontFamily, 32); //Edits the font of the word side of a card.
             button2.Font = new Font(button1.Font.FontFamily, 24); //Edits the font of the definition side of a card.
-            button1.Text = card1.word;  //Displays the word grabbed from class CardInfo.
+            button1.Text = this.word;  //Displays the word grabbed from class CardInfo.
 
 
         }
@@ -30,7 +31,7 @@ namespace FlashFrenzy
         {
             button2.Show(); button3.Show(); button4.Show(); button5.Show(); //Shows definition side buttons.
             button1.Hide(); //Hides word side button.
-            button2.Text = card1.definition; //Displays the definition grabbed from class CardInfo.
+            button2.Text = this.definition; //Displays the definition grabbed from class CardInfo.
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,9 +80,9 @@ namespace FlashFrenzy
         private void button6_Click(object sender, EventArgs e)
         {
             //THIS WILL BE CHANGED!!! AS OF NOW, IT REDIRECTS TO DEFAULT DECK.
-            SelectDeck nextForm = new SelectDeck();
-            this.Hide();
-            nextForm.Show();
+            //SelectDeck nextForm = new SelectDeck();
+            //this.Hide();
+            //nextForm.Show();
         }
     }
 }
