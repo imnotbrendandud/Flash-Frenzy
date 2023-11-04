@@ -13,6 +13,7 @@ namespace FlashFrenzy
     public partial class SelectDeck : Form
     {
         public static Deck currentDeck;
+        public int numCards = 0;
 
         public SelectDeck(Deck selectedDeck)
         {
@@ -23,8 +24,7 @@ namespace FlashFrenzy
 
             foreach (Card card in selectedDeck.cards)
             {
-                dataGridView1.Rows.Add(card.word);
-                dataGridView1.Rows.Add(card.definition);
+                dataGridView1.Rows.Add(numCards++, card.word, card.definition, card.mastery);
             }
 
             currentDeck = selectedDeck;
@@ -32,9 +32,8 @@ namespace FlashFrenzy
         private void button1_Click_1(object sender, EventArgs e)
         {
             //THIS WILL BE CHANGED!!! AS OF NOW, IT REDIRECTS TO DEFAULT DECK.
-            Card nextForm = new Card();
             this.Hide();
-            nextForm.Show();
+            currentDeck.cards[0].Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -56,13 +55,54 @@ namespace FlashFrenzy
 
         private void button7_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog())
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "txt files (.txt)|.txt|All files (.)|.";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                ofd.Filter = "Excel Files Only | *.xlsx; *.xls";
-                ofd.Title = "Choose the file";
-                if (ofd.ShowDialog() == DialogResult.OK)
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    //FileName_LBL.Text = ofd.FileName;
+
+                    System.IO.StreamWriter file = new System.IO.StreamWriter(myStream);
+                    try
+                    {
+                        string sLine = "";
+
+                        //This for loop loops through each row in the table
+                        for (int r = 0; r <= dataGridView1.Rows.Count - 1; r++)
+                        {
+                            //This for loop loops through each column, and the row number
+                            //is passed from the for loop above.
+                            for (int c = 0; c <= dataGridView1.Columns.Count - 1; c++)
+                            {
+                                sLine = sLine + dataGridView1.Rows[r].Cells[c].Value;
+                                if (c != dataGridView1.Columns.Count - 1)
+                                {
+                                    //A comma is added as a text delimiter in order
+                                    //to separate each field in the text file.
+                                    //You can choose another character as a delimiter.
+                                    sLine = sLine + "&";
+                                }
+
+                            }
+                            //The exported text is written to the text file, one line at a time.
+                            file.WriteLine(sLine);
+                            sLine = "";
+                        }
+
+                        file.Close();
+                        System.Windows.Forms.MessageBox.Show("Export Complete.", "Program Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (System.Exception err)
+                    {
+                        System.Windows.Forms.MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        file.Close();
+                    }
+                    myStream.Close();
                 }
             }
         }
@@ -74,31 +114,41 @@ namespace FlashFrenzy
 
         private void button8_Click(object sender, EventArgs e)
         {
-            /*Microsoft.Office.Interop.Excel.Application xlapp;
-            Microsoft.Office.Interop.Excel.Workbook xlworkbook;
-            Microsoft.Office.Interop.Excel.Worksheet xlworksheet;
-            Microsoft.Office.Interop.Excel.Range xlrange;
-            try
-            {
-                xlapp = new Microsoft.Office.Interop.Excel.Application();
-                xlworkbook = xlapp.Workbooks.Open(FileName_LBL.Text);
-                xlworksheet = (Microsoft.Office.Interop.Excel.Worksheet)xlworkbook.Worksheets["Sheet1"];
-                xlrange = xlworksheet.UsedRange;
+            dataGridView1.Refresh();
 
-                for (int xlrow = 1; xlrow <= xlrange.Rows.Count; xlrow++)
-                {
-                    dataGridView1.Rows.Add
-                        (
-                            xlrange.Cells[xlrow, 1].ToString
-                            );
-                }
-                xlworkbook.Close();
-                xlapp.Quit();
-            }
-            catch (Exception ex)
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                MessageBox.Show(ex.Message);
-            }*/
+
+                ofd.Filter = "Txt Files Only | *.txt;";
+                ofd.Title = "Choose the file";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // Display file name for user!!
+                    //FileName_LBL.Text = ofd.FileName;
+                    string[] lines = File.ReadAllLines(ofd.FileName);
+                    string[] values;
+
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        Card newCard = new Card();
+                        values = lines[i].ToString().Split('&');
+                        string[] row = new string[values.Length];
+
+
+                        for (int j = 1; j < values.Length; j++)
+                        {
+                            row[j] = values[j].Trim();
+                            newCard.word = row[1];
+                            newCard.definition = row[2];
+                            newCard.mastery = row[3];
+                        }
+
+                        currentDeck.cards.Add(newCard);
+                        dataGridView1.Rows.Add(numCards++, newCard.word, newCard.definition, newCard.mastery);
+                    }
+                }
+
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -106,6 +156,16 @@ namespace FlashFrenzy
             AddCard nextForm = new AddCard(currentDeck);
             nextForm.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            this.dataGridView1.Rows[e.RowIndex].Cells["RowNum"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+           e.Row.Cells["Mastery"].Value = 5;
         }
     }
 }

@@ -14,17 +14,18 @@ namespace FlashFrenzy
 {
     public partial class AddCard : Form
     {
-        Deck deck;
+        private const string defaultMastery = "5";
+
         Card newCard;
         //public static AddCard addCardInstance = new AddCard();
         public static string addedTerm;
         public static string addedDefinition;
+        public static string addedMastery;
 
         public AddCard(Deck currentDeck)
         {
             InitializeComponent();
             newCard = new Card();
-            deck = currentDeck;
         }
 
         public void button1_Click(object sender, EventArgs e)
@@ -34,8 +35,8 @@ namespace FlashFrenzy
 
             newCard.word = addedTerm;
             newCard.definition = addedDefinition;
-            newCard.confidence = 5;
-            deck.cards.Add(newCard);
+            newCard.mastery = defaultMastery;
+            SelectDeck.currentDeck.cards.Add(newCard);
             SelectDeck nextForm = new SelectDeck(SelectDeck.currentDeck);
             this.Hide();
             nextForm.Show();

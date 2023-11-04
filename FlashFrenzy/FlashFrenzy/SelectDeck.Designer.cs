@@ -31,9 +31,6 @@
             button1 = new Button();
             button2 = new Button();
             dataGridView1 = new DataGridView();
-            Terms = new DataGridViewTextBoxColumn();
-            Definitions = new DataGridViewTextBoxColumn();
-            Mastery = new DataGridViewTextBoxColumn();
             label1 = new Label();
             button3 = new Button();
             button4 = new Button();
@@ -42,15 +39,20 @@
             label2 = new Label();
             button7 = new Button();
             Import = new Button();
+            RowNum = new DataGridViewTextBoxColumn();
+            Terms = new DataGridViewTextBoxColumn();
+            Definitions = new DataGridViewTextBoxColumn();
+            Mastery = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(803, 272);
+            button1.Location = new Point(601, 130);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(206, 102);
+            button1.Size = new Size(144, 61);
             button1.TabIndex = 0;
             button1.Text = "Study!";
             button1.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(858, 405);
+            button2.Location = new Point(644, 195);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
-            button2.Size = new Size(101, 33);
+            button2.Size = new Size(71, 20);
             button2.TabIndex = 1;
             button2.Text = "Configure";
             button2.UseVisualStyleBackColor = true;
@@ -71,68 +74,44 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = SystemColors.AppWorkspace;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Terms, Definitions, Mastery });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { RowNum, Terms, Definitions, Mastery });
             dataGridView1.GridColor = SystemColors.ActiveCaption;
-            dataGridView1.Location = new Point(54, 97);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(38, 58);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridView1.Size = new Size(590, 483);
+            dataGridView1.Size = new Size(490, 290);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Terms
-            // 
-            Terms.Frozen = true;
-            Terms.HeaderText = "Terms";
-            Terms.MinimumWidth = 8;
-            Terms.Name = "Terms";
-            Terms.Resizable = DataGridViewTriState.False;
-            Terms.Width = 200;
-            // 
-            // Definitions
-            // 
-            Definitions.Frozen = true;
-            Definitions.HeaderText = "Definitions";
-            Definitions.MinimumWidth = 8;
-            Definitions.Name = "Definitions";
-            Definitions.Resizable = DataGridViewTriState.False;
-            Definitions.Width = 250;
-            // 
-            // Mastery
-            // 
-            Mastery.Frozen = true;
-            Mastery.HeaderText = "Mastery";
-            Mastery.MinimumWidth = 8;
-            Mastery.Name = "Mastery";
-            Mastery.ReadOnly = true;
-            Mastery.Resizable = DataGridViewTriState.False;
-            Mastery.Width = 75;
+            dataGridView1.DefaultValuesNeeded += dataGridView1_DefaultValuesNeeded;
+            dataGridView1.RowPrePaint += dataGridView1_RowPrePaint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(54, 67);
+            label1.Location = new Point(38, 40);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(68, 25);
+            label1.Size = new Size(44, 15);
             label1.TabIndex = 3;
             label1.Text = "Words:";
             // 
             // button3
             // 
-            button3.Location = new Point(299, 623);
+            button3.Location = new Point(209, 374);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
-            button3.Size = new Size(111, 33);
+            button3.Size = new Size(78, 20);
             button3.TabIndex = 4;
             button3.Text = "Edit";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(54, 623);
+            button4.Location = new Point(38, 374);
+            button4.Margin = new Padding(2);
             button4.Name = "button4";
-            button4.Size = new Size(111, 33);
+            button4.Size = new Size(78, 20);
             button4.TabIndex = 5;
             button4.Text = "Add";
             button4.UseVisualStyleBackColor = true;
@@ -140,9 +119,10 @@
             // 
             // button5
             // 
-            button5.Location = new Point(533, 623);
+            button5.Location = new Point(373, 374);
+            button5.Margin = new Padding(2);
             button5.Name = "button5";
-            button5.Size = new Size(111, 33);
+            button5.Size = new Size(78, 20);
             button5.TabIndex = 6;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
@@ -150,9 +130,10 @@
             // 
             // button6
             // 
-            button6.Location = new Point(1027, 623);
+            button6.Location = new Point(719, 374);
+            button6.Margin = new Padding(2);
             button6.Name = "button6";
-            button6.Size = new Size(111, 33);
+            button6.Size = new Size(78, 20);
             button6.TabIndex = 7;
             button6.Text = "Home";
             button6.UseVisualStyleBackColor = true;
@@ -162,18 +143,18 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 32F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(736, 148);
+            label2.Location = new Point(562, 69);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(364, 86);
+            label2.Size = new Size(243, 59);
             label2.TabIndex = 8;
             label2.Text = "Deck Name";
             // 
             // button7
             // 
-            button7.Location = new Point(1040, 14);
-            button7.Margin = new Padding(4, 5, 4, 5);
+            button7.Location = new Point(728, 8);
             button7.Name = "button7";
-            button7.Size = new Size(134, 35);
+            button7.Size = new Size(94, 21);
             button7.TabIndex = 9;
             button7.Text = "Load";
             button7.UseVisualStyleBackColor = true;
@@ -181,20 +162,50 @@
             // 
             // Import
             // 
-            Import.Location = new Point(870, 10);
-            Import.Margin = new Padding(4, 5, 4, 5);
+            Import.Location = new Point(609, 6);
             Import.Name = "Import";
-            Import.Size = new Size(151, 43);
+            Import.Size = new Size(106, 26);
             Import.TabIndex = 11;
             Import.Text = "Import";
             Import.UseVisualStyleBackColor = true;
             Import.Click += button8_Click;
             // 
+            // RowNum
+            // 
+            RowNum.HeaderText = "#";
+            RowNum.Name = "RowNum";
+            RowNum.ReadOnly = true;
+            RowNum.Width = 50;
+            // 
+            // Terms
+            // 
+            Terms.HeaderText = "Terms";
+            Terms.MinimumWidth = 8;
+            Terms.Name = "Terms";
+            Terms.Resizable = DataGridViewTriState.False;
+            // 
+            // Definitions
+            // 
+            Definitions.HeaderText = "Definitions";
+            Definitions.MinimumWidth = 8;
+            Definitions.Name = "Definitions";
+            Definitions.Resizable = DataGridViewTriState.False;
+            Definitions.Width = 200;
+            // 
+            // Mastery
+            // 
+            Mastery.HeaderText = "Mastery";
+            Mastery.MinimumWidth = 8;
+            Mastery.Name = "Mastery";
+            Mastery.ReadOnly = true;
+            Mastery.Resizable = DataGridViewTriState.False;
+            Mastery.Width = 75;
+            // 
             // SelectDeck
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1187, 702);
+            ClientSize = new Size(831, 421);
             Controls.Add(Import);
             Controls.Add(button7);
             Controls.Add(dataGridView1);
@@ -206,6 +217,7 @@
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(2);
             Name = "SelectDeck";
             Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -227,6 +239,7 @@
         private Button button7;
         private Button Import;
         private Button button8;
+        private DataGridViewTextBoxColumn RowNum;
         private DataGridViewTextBoxColumn Terms;
         private DataGridViewTextBoxColumn Definitions;
         private DataGridViewTextBoxColumn Mastery;
