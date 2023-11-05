@@ -34,19 +34,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\czeka\\.nuget\\packages\\": {}
+    "C:\\Users\\ryans\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+      "projectUniqueName": "C:\\Users\\ryans\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
       "projectName": "FlashFrenzy",
-      "projectPath": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
-      "packagesPath": "C:\\Users\\czeka\\.nuget\\packages\\",
-      "outputPath": "E:\\Desktop\\TeamSoftwareProj\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
+      "projectPath": "C:\\Users\\ryans\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+      "packagesPath": "C:\\Users\\ryans\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ryans\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\czeka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ryans\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -96,7 +96,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

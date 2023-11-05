@@ -7,6 +7,9 @@
     <Compile Update="Card.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CardCustomize.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CreateDeck.cs">
       <SubType>Form</SubType>
     </Compile>

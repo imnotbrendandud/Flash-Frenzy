@@ -13,7 +13,7 @@ namespace FlashFrenzy
     public partial class SelectDeck : Form
     {
         // The current deck selected
-        public static Deck currentDeck;
+        public static Deck? currentDeck;
 
         // Number of cards in the deck
         public int numCards = 0;
@@ -28,8 +28,9 @@ namespace FlashFrenzy
             // Load each card into the data grid view
             foreach (Card card in selectedDeck.cards)
             {
-                dataGridView1.Rows.Add(numCards++, card.word, card.definition, card.mastery);
+                dataGridView1.Rows.Add(numCards++, card.Word, card.Definition, card.Mastery);
             }
+
 
             currentDeck = selectedDeck;
         }
@@ -144,13 +145,13 @@ namespace FlashFrenzy
                         for (int j = 1; j < values.Length; j++)
                         {
                             row[j] = values[j].Trim();
-                            newCard.word = row[1];
-                            newCard.definition = row[2];
-                            newCard.mastery = row[3];
+                            newCard.Word = row[1];
+                            newCard.Definition = row[2];
+                            newCard.Mastery = row[3];
                         }
 
                         currentDeck.cards.Add(newCard);
-                        dataGridView1.Rows.Add(numCards++, newCard.word, newCard.definition, newCard.mastery);
+                        dataGridView1.Rows.Add(numCards++, newCard.Word, newCard.Definition, newCard.Mastery);
                     }
                 }
 
@@ -171,7 +172,31 @@ namespace FlashFrenzy
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-           e.Row.Cells["Mastery"].Value = 5;
+            e.Row.Cells["Mastery"].Value = 5;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Check if any cells are currently selected in the DataGridView.
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                // Get the index of the selected row.
+                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+                // Get the Card object from the currentDeck's cards list at the selected row index.
+                // This assumes that the order of rows in the DataGridView matches the order of the cards list.
+                Card selectedCard = currentDeck.cards[selectedRowIndex];
+
+                // Now we can pass this Card object to the CardCustomize form.
+                CardCustomize customizeForm = new CardCustomize(selectedCard);
+
+                // Show the CardCustomize form as a dialog.
+                customizeForm.ShowDialog(); // Use ShowDialog to make it modal if needed.
+            }
+            else
+            {
+                MessageBox.Show("Please select a card to customize.");
+            }
         }
     }
 }

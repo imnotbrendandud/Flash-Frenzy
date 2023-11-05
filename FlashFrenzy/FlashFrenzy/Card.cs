@@ -9,9 +9,15 @@ namespace FlashFrenzy
     public partial class Card : Form
     {
         //More cards will be added here, but will be uploaded through a local file (which will be read in).
-        public string word { get; set; }
-        public string definition { get; set; }
-        public string mastery { get; set; } //Ranges from 1 to 10 (1 being the least amount of knowledge).
+        public string Word { get; set; }
+        public string Definition { get; set; }
+        public string Mastery { get; set; } //Ranges from 1 to 10 (1 being the least amount of knowledge).
+
+        // Customization properties
+        public Color BackgroundColor { get; set; } = Color.White; // Default color
+        public Font CardFont { get; set; } = new Font("Arial", 12); // Default font
+        public Color TextColor { get; set; } = Color.Black; // Default text color
+
 
         public Card()
         {
@@ -20,14 +26,14 @@ namespace FlashFrenzy
             button3.Hide(); button4.Hide(); button5.Hide(); //Hides definition side buttons.
             button1.Font = new Font(button1.Font.FontFamily, 32); //Edits the font of the word side of a card.
             button2.Font = new Font(button1.Font.FontFamily, 24); //Edits the font of the definition side of a card.
-            button1.Text = this.word;  //Displays the word grabbed from class CardInfo.
+            button1.Text = this.Word;  //Displays the word grabbed from class CardInfo.
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             button2.Show(); button3.Show(); button4.Show(); button5.Show(); //Shows definition side buttons.
             button1.Hide(); //Hides word side button.
-            button2.Text = this.definition; //Displays the definition grabbed from class CardInfo.
+            button2.Text = this.Definition; //Displays the definition grabbed from class CardInfo.
         }
 
         private void button2_Click(object sender, EventArgs e)

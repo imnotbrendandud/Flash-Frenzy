@@ -33,9 +33,9 @@ namespace FlashFrenzy
             addedTerm = addCardTerm.Text;
             addedDefinition = addCardDefinition.Text;
 
-            newCard.word = addedTerm;
-            newCard.definition = addedDefinition;
-            newCard.mastery = defaultMastery;
+            newCard.Word = addedTerm;
+            newCard.Definition = addedDefinition;
+            newCard.Mastery = defaultMastery;
             SelectDeck.currentDeck.cards.Add(newCard);
             SelectDeck nextForm = new SelectDeck(SelectDeck.currentDeck);
             this.Hide();

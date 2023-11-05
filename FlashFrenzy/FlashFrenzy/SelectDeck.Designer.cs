@@ -31,6 +31,10 @@
             button1 = new Button();
             button2 = new Button();
             dataGridView1 = new DataGridView();
+            RowNum = new DataGridViewTextBoxColumn();
+            Terms = new DataGridViewTextBoxColumn();
+            Definitions = new DataGridViewTextBoxColumn();
+            Mastery = new DataGridViewTextBoxColumn();
             label1 = new Label();
             button3 = new Button();
             button4 = new Button();
@@ -39,10 +43,6 @@
             label2 = new Label();
             button7 = new Button();
             Import = new Button();
-            RowNum = new DataGridViewTextBoxColumn();
-            Terms = new DataGridViewTextBoxColumn();
-            Definitions = new DataGridViewTextBoxColumn();
-            Mastery = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -67,6 +67,7 @@
             button2.TabIndex = 1;
             button2.Text = "Configure";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // dataGridView1
             // 
@@ -85,6 +86,37 @@
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.DefaultValuesNeeded += dataGridView1_DefaultValuesNeeded;
             dataGridView1.RowPrePaint += dataGridView1_RowPrePaint;
+            // 
+            // RowNum
+            // 
+            RowNum.HeaderText = "#";
+            RowNum.Name = "RowNum";
+            RowNum.ReadOnly = true;
+            RowNum.Width = 50;
+            // 
+            // Terms
+            // 
+            Terms.HeaderText = "Terms";
+            Terms.MinimumWidth = 8;
+            Terms.Name = "Terms";
+            Terms.Resizable = DataGridViewTriState.False;
+            // 
+            // Definitions
+            // 
+            Definitions.HeaderText = "Definitions";
+            Definitions.MinimumWidth = 8;
+            Definitions.Name = "Definitions";
+            Definitions.Resizable = DataGridViewTriState.False;
+            Definitions.Width = 200;
+            // 
+            // Mastery
+            // 
+            Mastery.HeaderText = "Mastery";
+            Mastery.MinimumWidth = 8;
+            Mastery.Name = "Mastery";
+            Mastery.ReadOnly = true;
+            Mastery.Resizable = DataGridViewTriState.False;
+            Mastery.Width = 75;
             // 
             // label1
             // 
@@ -169,37 +201,6 @@
             Import.Text = "Import";
             Import.UseVisualStyleBackColor = true;
             Import.Click += button8_Click;
-            // 
-            // RowNum
-            // 
-            RowNum.HeaderText = "#";
-            RowNum.Name = "RowNum";
-            RowNum.ReadOnly = true;
-            RowNum.Width = 50;
-            // 
-            // Terms
-            // 
-            Terms.HeaderText = "Terms";
-            Terms.MinimumWidth = 8;
-            Terms.Name = "Terms";
-            Terms.Resizable = DataGridViewTriState.False;
-            // 
-            // Definitions
-            // 
-            Definitions.HeaderText = "Definitions";
-            Definitions.MinimumWidth = 8;
-            Definitions.Name = "Definitions";
-            Definitions.Resizable = DataGridViewTriState.False;
-            Definitions.Width = 200;
-            // 
-            // Mastery
-            // 
-            Mastery.HeaderText = "Mastery";
-            Mastery.MinimumWidth = 8;
-            Mastery.Name = "Mastery";
-            Mastery.ReadOnly = true;
-            Mastery.Resizable = DataGridViewTriState.False;
-            Mastery.Width = 75;
             // 
             // SelectDeck
             // 
