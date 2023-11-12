@@ -34,19 +34,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ryans\\.nuget\\packages\\": {}
+    "C:\\Users\\Joshua\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ryans\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+      "projectUniqueName": "C:\\Users\\Joshua\\source\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
       "projectName": "FlashFrenzy",
-      "projectPath": "C:\\Users\\ryans\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
-      "packagesPath": "C:\\Users\\ryans\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ryans\\source\\repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
+      "projectPath": "C:\\Users\\Joshua\\source\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+      "packagesPath": "C:\\Users\\Joshua\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Joshua\\source\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ryans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Joshua\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

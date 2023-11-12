@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FlashFrenzy",
+    "\\FlashFrenzy\\FlashFrenzy"
   ],
+  "SelectedNode": "\\FlashFrenzy\\FlashFrenzy\\SelectDeck.cs",
   "PreviewInSolutionExplorer": false
 }
