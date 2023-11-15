@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FlashFrenzy
+﻿namespace FlashFrenzy
 {
     public partial class SelectDeck : Form
     {
@@ -17,6 +7,13 @@ namespace FlashFrenzy
 
         // Number of cards in the deck
         public int numCards = 0;
+        
+        /* Prevents the CellChange event from firing when the program makes changes to the dataGrid.
+         * Set true before performing changes to the dataGrid through code.
+         * Set false when finished with changes.
+         * Only applies in this form.
+         */
+        private bool usrChanges = false;
 
         public SelectDeck(Deck selectedDeck)
         {
@@ -31,8 +28,8 @@ namespace FlashFrenzy
                 dataGridView1.Rows.Add(numCards++, card.Word, card.Definition, card.Mastery);
             }
 
-
             currentDeck = selectedDeck;
+            dataGridView1.CellValueChanged += new DataGridViewCellEventHandler(GridCellChanged);
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -49,11 +46,6 @@ namespace FlashFrenzy
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
         {
 
         }
@@ -101,11 +93,11 @@ namespace FlashFrenzy
                         }
 
                         file.Close();
-                        System.Windows.Forms.MessageBox.Show("Export Complete.", "Program Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Export Complete.", "Program Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (System.Exception err)
+                    catch (Exception err)
                     {
-                        System.Windows.Forms.MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         file.Close();
                     }
                     myStream.Close();
@@ -122,7 +114,7 @@ namespace FlashFrenzy
         private void button8_Click(object sender, EventArgs e)
         {
             dataGridView1.Refresh();
-
+            usrChanges = false;
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
 
@@ -156,13 +148,95 @@ namespace FlashFrenzy
                 }
 
             }
+            usrChanges = true;
         }
 
+        //AutoSave function used for add, edit, and delete buttons.
+        private void Autosave()
+        {
+
+        }
+
+        private void GridCellChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (usrChanges)
+            {
+                if (e.ColumnIndex == 1)
+                {
+                    if (e.RowIndex == dataGridView1.RowCount - 2)
+                    {
+                        Card newCard = new Card();
+                        newCard.Name = e.ToString();
+                        currentDeck.cards.Add(newCard);
+                        label5.Visible = true;
+
+                    }
+                    else
+                    {
+                        if (e.ToString != null)
+                        {
+                            currentDeck.cards[e.RowIndex].Word = e.ToString();
+                        }
+                    }
+                }
+                else if (e.ColumnIndex == 2)
+                {
+                    if (e.RowIndex == dataGridView1.RowCount - 2)
+                    {
+                        if (e.ToString != null)
+                        {
+                            Card newCard = new Card();
+                            newCard.Definition = e.ToString();
+                            currentDeck.cards.Add(newCard);
+                        }
+                    }
+                    else
+                    {
+                        currentDeck.cards[e.RowIndex].Definition = e.ToString();
+                    }
+                }
+                Autosave();
+            }
+        }
+
+        //Edit button (Potentially redundant)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Autosave();
+        }
+
+        //Add button
         private void button4_Click(object sender, EventArgs e)
         {
             AddCard nextForm = new AddCard(currentDeck);
             nextForm.Show();
             this.Hide();
+            Autosave();
+        }
+
+        //Delete button
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (currentDeck.cards.Count > 0)
+            {
+                int selectedCells = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+                if (selectedCells > 0)
+                {
+                    for (int i = 0; i < selectedCells; i++)
+                    {
+                        DataGridViewCell cell = dataGridView1.SelectedCells[i];
+                        currentDeck.cards.RemoveAt(cell.RowIndex);
+                        dataGridView1.Rows.Remove(cell.OwningRow);
+                        selectedCells = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+                        Autosave();
+                    }
+                    label4.Visible = false;
+                }
+                else
+                {
+                    label4.Visible = true;
+                }
+            }
         }
 
         private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
@@ -172,7 +246,9 @@ namespace FlashFrenzy
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
+            usrChanges = false;
             e.Row.Cells["Mastery"].Value = 5;
+            usrChanges = true;
         }
 
         private void button2_Click(object sender, EventArgs e)

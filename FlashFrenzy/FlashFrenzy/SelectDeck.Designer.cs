@@ -43,6 +43,9 @@
             label2 = new Label();
             button7 = new Button();
             Import = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -135,7 +138,7 @@
             button3.Name = "button3";
             button3.Size = new Size(78, 20);
             button3.TabIndex = 4;
-            button3.Text = "Edit";
+            button3.Text = "Save Edit";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -202,11 +205,43 @@
             Import.UseVisualStyleBackColor = true;
             Import.Click += button8_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(40, 348);
+            label3.Name = "label3";
+            label3.Size = new Size(285, 15);
+            label3.TabIndex = 12;
+            label3.Text = "Double-click a cell to edit a cards name or definition.";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(258, 397);
+            label4.Name = "label4";
+            label4.Size = new Size(305, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Please select one or more rows to delete from your deck!";
+            label4.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(562, 260);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 14;
+            label5.Text = "label5";
+            label5.Visible = false;
+            // 
             // SelectDeck
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(831, 421);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(Import);
             Controls.Add(button7);
             Controls.Add(dataGridView1);
@@ -239,10 +274,12 @@
         private DataGridView dataGridView1;
         private Button button7;
         private Button Import;
-        private Button button8;
         private DataGridViewTextBoxColumn RowNum;
         private DataGridViewTextBoxColumn Terms;
         private DataGridViewTextBoxColumn Definitions;
         private DataGridViewTextBoxColumn Mastery;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
