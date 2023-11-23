@@ -7,7 +7,7 @@
 
         // Number of cards in the deck
         public int numCards = 0;
-        
+
         /* Prevents the CellChange event from firing when the program makes changes to the dataGrid.
          * Set true before performing changes to the dataGrid through code.
          * Set false when finished with changes.
@@ -33,9 +33,12 @@
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //THIS WILL BE CHANGED!!! AS OF NOW, IT REDIRECTS TO DEFAULT DECK.
-            this.Hide();
-            currentDeck.cards[0].Show();
+            if (currentDeck.cards.Count > 0)
+            {
+                Card nextForm = new Card(currentDeck);
+                this.Hide();
+                nextForm.Show();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -129,7 +132,7 @@
 
                     for (int i = 0; i < lines.Length; i++)
                     {
-                        Card newCard = new Card();
+                        Card newCard = new Card(currentDeck);
                         values = lines[i].ToString().Split('&');
                         string[] row = new string[values.Length];
 
@@ -165,7 +168,7 @@
                 {
                     if (e.RowIndex == dataGridView1.RowCount - 2)
                     {
-                        Card newCard = new Card();
+                        Card newCard = new Card(currentDeck);
                         newCard.Name = e.ToString();
                         currentDeck.cards.Add(newCard);
                         label5.Visible = true;
@@ -185,7 +188,7 @@
                     {
                         if (e.ToString != null)
                         {
-                            Card newCard = new Card();
+                            Card newCard = new Card(currentDeck);
                             newCard.Definition = e.ToString();
                             currentDeck.cards.Add(newCard);
                         }
@@ -273,6 +276,11 @@
             {
                 MessageBox.Show("Please select a card to customize.");
             }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

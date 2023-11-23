@@ -35,14 +35,14 @@
             button5 = new Button();
             checkBox1 = new CheckBox();
             button6 = new Button();
+            button7 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(163, 40);
-            button1.Margin = new Padding(2);
+            button1.Location = new Point(233, 67);
             button1.Name = "button1";
-            button1.Size = new Size(478, 295);
+            button1.Size = new Size(683, 492);
             button1.TabIndex = 0;
             button1.Text = "Word";
             button1.UseVisualStyleBackColor = true;
@@ -50,10 +50,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(163, 40);
-            button2.Margin = new Padding(2);
+            button2.Location = new Point(233, 67);
             button2.Name = "button2";
-            button2.Size = new Size(478, 295);
+            button2.Size = new Size(683, 492);
             button2.TabIndex = 1;
             button2.Text = "Word";
             button2.UseVisualStyleBackColor = true;
@@ -61,10 +60,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(190, 344);
-            button3.Margin = new Padding(2);
+            button3.Location = new Point(271, 573);
             button3.Name = "button3";
-            button3.Size = new Size(78, 20);
+            button3.Size = new Size(111, 33);
             button3.TabIndex = 2;
             button3.Text = "No";
             button3.UseVisualStyleBackColor = true;
@@ -72,10 +70,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(361, 344);
-            button4.Margin = new Padding(2);
+            button4.Location = new Point(516, 573);
             button4.Name = "button4";
-            button4.Size = new Size(78, 20);
+            button4.Size = new Size(111, 33);
             button4.TabIndex = 3;
             button4.Text = "A little";
             button4.UseVisualStyleBackColor = true;
@@ -83,10 +80,9 @@
             // 
             // button5
             // 
-            button5.Location = new Point(532, 344);
-            button5.Margin = new Padding(2);
+            button5.Location = new Point(760, 573);
             button5.Name = "button5";
-            button5.Size = new Size(78, 20);
+            button5.Size = new Size(111, 33);
             button5.TabIndex = 4;
             button5.Text = "Yes";
             button5.UseVisualStyleBackColor = true;
@@ -95,10 +91,9 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(8, 7);
-            checkBox1.Margin = new Padding(2);
+            checkBox1.Location = new Point(11, 12);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(84, 19);
+            checkBox1.Size = new Size(127, 29);
             checkBox1.TabIndex = 5;
             checkBox1.Text = "Dark Mode";
             checkBox1.UseVisualStyleBackColor = true;
@@ -106,20 +101,30 @@
             // 
             // button6
             // 
-            button6.Location = new Point(733, 383);
-            button6.Margin = new Padding(2);
+            button6.Location = new Point(1047, 638);
             button6.Name = "button6";
-            button6.Size = new Size(78, 20);
+            button6.Size = new Size(111, 33);
             button6.TabIndex = 6;
             button6.Text = "Back";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
+            // button7
+            // 
+            button7.Location = new Point(233, 67);
+            button7.Name = "button7";
+            button7.Size = new Size(683, 492);
+            button7.TabIndex = 7;
+            button7.Text = "Click to Start";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
             // Card
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(831, 421);
+            ClientSize = new Size(1187, 702);
+            Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(checkBox1);
             Controls.Add(button5);
@@ -127,7 +132,6 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(2);
             Name = "Card";
             Text = "Form1";
             ResumeLayout(false);
@@ -143,5 +147,6 @@
         private Button button5;
         private CheckBox checkBox1;
         private Button button6;
+        private Button button7;
     }
 }

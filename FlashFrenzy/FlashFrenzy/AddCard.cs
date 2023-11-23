@@ -25,7 +25,7 @@ namespace FlashFrenzy
         public AddCard(Deck currentDeck)
         {
             InitializeComponent();
-            newCard = new Card();
+            newCard = new Card(currentDeck);
         }
 
         public void button1_Click(object sender, EventArgs e)
