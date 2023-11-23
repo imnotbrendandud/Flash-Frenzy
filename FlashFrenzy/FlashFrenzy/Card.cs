@@ -50,7 +50,6 @@ namespace FlashFrenzy
             button2.Show(); button3.Show(); button4.Show(); button5.Show(); //Shows definition side buttons.
             button1.Hide(); //Hides word side button.
             button2.Text = currentCard.Definition; //Displays the definition grabbed from class CardInfo.
-            button4.Text = updatedMasteryInt.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
