@@ -15,6 +15,9 @@ namespace FlashFrenzy
     public partial class AddCard : Form
     {
         private const string defaultMastery = "5";
+        //Redundant if we make the default constructor for card set the instance variables to their default values.
+        //Same with line 40.
+        //private const string defaultMastery = "5";
 
         Card newCard;
         //public static AddCard addCardInstance = new AddCard();
@@ -35,7 +38,7 @@ namespace FlashFrenzy
 
             newCard.Word = addedTerm;
             newCard.Definition = addedDefinition;
-            newCard.Mastery = defaultMastery;
+            //newCard.Mastery = defaultMastery;
             SelectDeck.currentDeck.cards.Add(newCard);
             SelectDeck nextForm = new SelectDeck(SelectDeck.currentDeck);
             this.Hide();

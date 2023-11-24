@@ -45,7 +45,6 @@
             Import = new Button();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -226,23 +225,11 @@
             label4.Text = "Please select one or more rows to delete from your deck!";
             label4.Visible = false;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(803, 433);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(59, 25);
-            label5.TabIndex = 14;
-            label5.Text = "label5";
-            label5.Visible = false;
-            // 
             // SelectDeck
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1187, 702);
-            Controls.Add(label5);
+            ClientSize = new Size(831, 421);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(Import);
@@ -282,6 +269,5 @@
         private DataGridViewTextBoxColumn Mastery;
         private Label label3;
         private Label label4;
-        private Label label5;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace FlashFrenzy
+﻿using System.IO;
+
+namespace FlashFrenzy
 {
     public partial class SelectDeck : Form
     {
@@ -7,10 +9,10 @@
 
         // Number of cards in the deck
         public int numCards = 0;
-
-        /* Prevents the CellChange event from firing when the program makes changes to the dataGrid.
-         * Set true before performing changes to the dataGrid through code.
-         * Set false when finished with changes.
+        
+        /* Prevents the CellChange event from firing when the program makes changes to the DataGrid.
+         * Set false before performing changes to the dataGrid through code.
+         * Set true when finished with changes.
          * Only applies in this form.
          */
         private bool usrChanges = false;
@@ -67,8 +69,8 @@
             {
                 if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-
-                    System.IO.StreamWriter file = new System.IO.StreamWriter(myStream);
+                    
+                    StreamWriter file = new StreamWriter(myStream);
                     try
                     {
                         string sLine = "";
@@ -108,11 +110,6 @@
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         // Importing
         private void button8_Click(object sender, EventArgs e)
         {
@@ -142,7 +139,7 @@
                             row[j] = values[j].Trim();
                             newCard.Word = row[1];
                             newCard.Definition = row[2];
-                            newCard.Mastery = row[3];
+                            //newCard.Mastery = Int32.Parse(row[3]);
                         }
 
                         currentDeck.cards.Add(newCard);
@@ -154,9 +151,50 @@
             usrChanges = true;
         }
 
+        private void Save(StreamWriter file, bool mast)
+        {
+            try
+            {
+                string sLine = "";
+                if (mast)
+                {
+                    for (int i = 0; i < currentDeck.cards.Count; i++)
+                    {
+                        Card card = currentDeck.cards[i];
+                        sLine = card.Mastery + "&";
+                        file.WriteLine(sLine);
+                    }
+                    file.Close();
+                }
+                else
+                {
+                    for (int i = 0; i < currentDeck.cards.Count; i++)
+                    {
+                        Card card = currentDeck.cards[i];
+                        sLine = card.Word + "&" + card.Definition + "&";
+                        file.WriteLine(sLine);
+                    }
+                    file.Close();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error with saving.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                file.Close();
+            }
+        }
+
         //AutoSave function used for add, edit, and delete buttons.
         private void Autosave()
         {
+            Stream auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Terms.txt"));
+            StreamWriter autoWriter = new StreamWriter(auto);
+            Save(autoWriter, false);
+            auto.Close();
+            auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Mastery.txt"));
+            autoWriter = new StreamWriter(auto);
+            Save(autoWriter, true);
+            auto.Close();
 
         }
 
@@ -164,41 +202,36 @@
         {
             if (usrChanges)
             {
+                string dirtyCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 if (e.ColumnIndex == 1)
                 {
+                    //Adds card to deck instead of editing if user enters data into the last row.
+                    //(-2 because a new row is created before this event fires).
                     if (e.RowIndex == dataGridView1.RowCount - 2)
                     {
                         Card newCard = new Card(currentDeck);
-                        newCard.Name = e.ToString();
+                        newCard.Word = dirtyCell;
                         currentDeck.cards.Add(newCard);
-                        label5.Visible = true;
 
                     }
                     else
                     {
-                        if (e.ToString != null)
-                        {
-                            currentDeck.cards[e.RowIndex].Word = e.ToString();
-                        }
+                            currentDeck.cards[e.RowIndex].Word = dirtyCell;
                     }
                 }
                 else if (e.ColumnIndex == 2)
                 {
-                    if (e.RowIndex == dataGridView1.RowCount - 2)
+                    if (e.RowIndex == dataGridView1.RowCount - 1)
                     {
-                        if (e.ToString != null)
-                        {
                             Card newCard = new Card(currentDeck);
-                            newCard.Definition = e.ToString();
+                            newCard.Definition = dirtyCell;
                             currentDeck.cards.Add(newCard);
-                        }
                     }
                     else
                     {
-                        currentDeck.cards[e.RowIndex].Definition = e.ToString();
+                        currentDeck.cards[e.RowIndex].Definition = dirtyCell;
                     }
                 }
-                Autosave();
             }
         }
 
@@ -244,7 +277,9 @@
 
         private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
+            usrChanges = false;
             this.dataGridView1.Rows[e.RowIndex].Cells["RowNum"].Value = (e.RowIndex + 1).ToString();
+            usrChanges = true;
         }
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)

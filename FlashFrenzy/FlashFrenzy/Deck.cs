@@ -10,16 +10,23 @@ namespace FlashFrenzy
     {
         public List<Card> cards;
         private string name;
+        private string dirPath;
 
-        public Deck(string in_Name) 
+        public Deck(string in_Name, string dir) 
         {
             cards = new List<Card>();
             name = in_Name;
+            dirPath = dir;
         }
 
         public string GetName()
         {
             return this.name;
+        }
+        
+        public string GetDirPath()
+        {
+            return this.dirPath;
         }
     }
 }

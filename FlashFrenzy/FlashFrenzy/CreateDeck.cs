@@ -26,8 +26,6 @@ namespace FlashFrenzy
 
         private void btn_cD_confirm_Click(object sender, EventArgs e)
         {
-            Deck newDeck = new Deck(txtBox_cD_name.Text);
-
             string foldername = txtBox_cD_name.Text;
             using (var fbd = new FolderBrowserDialog())
             {
@@ -38,9 +36,10 @@ namespace FlashFrenzy
                     dirPath = Path.Combine(fbd.SelectedPath, foldername);
                     if (!(File.Exists(dirPath)))
                     {
-                        System.IO.Directory.CreateDirectory(dirPath);
-                        File.Create(Path.Combine(dirPath, "Terms.txt"));
-                        File.Create(Path.Combine(dirPath, "Mastery.txt"));
+                        Directory.CreateDirectory(dirPath);
+                        //File.Create(Path.Combine(dirPath, "Terms.txt"));
+                        //File.Create(Path.Combine(dirPath, "Mastery.txt"));
+                        Deck newDeck = new Deck(txtBox_cD_name.Text, dirPath);
                         Home.instance.addDeck(newDeck);
                     }
                     else if (File.Exists(dirPath)) // This else statement is not working for some reason 
