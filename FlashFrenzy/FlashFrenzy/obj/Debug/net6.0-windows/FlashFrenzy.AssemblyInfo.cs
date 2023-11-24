@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlashFrenzy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1dcfe3306c8777f27092cca2255246c73dfd9b2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b996bc9fd89fddb1a59a261b4aff93fd280f8976")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlashFrenzy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlashFrenzy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
