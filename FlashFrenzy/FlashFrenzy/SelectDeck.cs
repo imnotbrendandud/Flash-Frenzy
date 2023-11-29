@@ -9,7 +9,7 @@ namespace FlashFrenzy
 
         // Number of cards in the deck
         public int numCards = 0;
-        
+
         /* Prevents the CellChange event from firing when the program makes changes to the DataGrid.
          * Set false before performing changes to the dataGrid through code.
          * Set true when finished with changes.
@@ -32,7 +32,18 @@ namespace FlashFrenzy
 
             currentDeck = selectedDeck;
             dataGridView1.CellValueChanged += new DataGridViewCellEventHandler(GridCellChanged);
+            
+            // Subscribe to the FormClosed event to handle application exit
+            this.FormClosed += SelectDeck_FormClosed;
         }
+        
+        // Event handler for FormClosed event
+        private void SelectDeck_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Call Application.Exit() to close the entire application
+            Application.Exit();
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (currentDeck.cards.Count > 0)
@@ -69,7 +80,7 @@ namespace FlashFrenzy
             {
                 if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    
+
                     StreamWriter file = new StreamWriter(myStream);
                     try
                     {
@@ -216,16 +227,16 @@ namespace FlashFrenzy
                     }
                     else
                     {
-                            currentDeck.cards[e.RowIndex].Word = dirtyCell;
+                        currentDeck.cards[e.RowIndex].Word = dirtyCell;
                     }
                 }
                 else if (e.ColumnIndex == 2)
                 {
                     if (e.RowIndex == dataGridView1.RowCount - 1)
                     {
-                            Card newCard = new Card(currentDeck);
-                            newCard.Definition = dirtyCell;
-                            currentDeck.cards.Add(newCard);
+                        Card newCard = new Card(currentDeck);
+                        newCard.Definition = dirtyCell;
+                        currentDeck.cards.Add(newCard);
                     }
                     else
                     {

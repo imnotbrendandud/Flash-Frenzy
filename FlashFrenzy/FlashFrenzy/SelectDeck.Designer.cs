@@ -51,9 +51,10 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(859, 217);
+            button1.Location = new Point(601, 130);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(206, 102);
+            button1.Size = new Size(144, 61);
             button1.TabIndex = 0;
             button1.Text = "Study!";
             button1.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(920, 325);
+            button2.Location = new Point(644, 195);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(101, 33);
+            button2.Size = new Size(71, 20);
             button2.TabIndex = 1;
             button2.Text = "Configure";
             button2.UseVisualStyleBackColor = true;
@@ -79,12 +81,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { RowNum, Terms, Definitions, Mastery });
             dataGridView1.GridColor = SystemColors.ActiveCaption;
-            dataGridView1.Location = new Point(54, 97);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(38, 58);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridView1.Size = new Size(700, 483);
+            dataGridView1.Size = new Size(490, 290);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.DefaultValuesNeeded += dataGridView1_DefaultValuesNeeded;
@@ -126,17 +127,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(54, 67);
+            label1.Location = new Point(38, 40);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(68, 25);
+            label1.Size = new Size(44, 15);
             label1.TabIndex = 3;
             label1.Text = "Words:";
             // 
             // button3
             // 
-            button3.Location = new Point(299, 623);
+            button3.Location = new Point(209, 374);
+            button3.Margin = new Padding(2, 2, 2, 2);
             button3.Name = "button3";
-            button3.Size = new Size(111, 33);
+            button3.Size = new Size(78, 20);
             button3.TabIndex = 4;
             button3.Text = "Save Edit";
             button3.UseVisualStyleBackColor = true;
@@ -144,9 +147,10 @@
             // 
             // button4
             // 
-            button4.Location = new Point(54, 623);
+            button4.Location = new Point(38, 374);
+            button4.Margin = new Padding(2, 2, 2, 2);
             button4.Name = "button4";
-            button4.Size = new Size(111, 33);
+            button4.Size = new Size(78, 20);
             button4.TabIndex = 5;
             button4.Text = "Add";
             button4.UseVisualStyleBackColor = true;
@@ -154,9 +158,10 @@
             // 
             // button5
             // 
-            button5.Location = new Point(533, 623);
+            button5.Location = new Point(373, 374);
+            button5.Margin = new Padding(2, 2, 2, 2);
             button5.Name = "button5";
-            button5.Size = new Size(111, 33);
+            button5.Size = new Size(78, 20);
             button5.TabIndex = 6;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
@@ -164,9 +169,10 @@
             // 
             // button6
             // 
-            button6.Location = new Point(1027, 623);
+            button6.Location = new Point(719, 374);
+            button6.Margin = new Padding(2, 2, 2, 2);
             button6.Name = "button6";
-            button6.Size = new Size(111, 33);
+            button6.Size = new Size(78, 20);
             button6.TabIndex = 7;
             button6.Text = "Home";
             button6.UseVisualStyleBackColor = true;
@@ -176,18 +182,18 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 32F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(803, 115);
+            label2.Location = new Point(562, 69);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(364, 86);
+            label2.Size = new Size(243, 59);
             label2.TabIndex = 8;
             label2.Text = "Deck Name";
             // 
             // button7
             // 
-            button7.Location = new Point(1040, 13);
-            button7.Margin = new Padding(4, 5, 4, 5);
+            button7.Location = new Point(728, 8);
             button7.Name = "button7";
-            button7.Size = new Size(134, 35);
+            button7.Size = new Size(94, 21);
             button7.TabIndex = 9;
             button7.Text = "Export";
             button7.UseVisualStyleBackColor = true;
@@ -195,10 +201,9 @@
             // 
             // Import
             // 
-            Import.Location = new Point(870, 10);
-            Import.Margin = new Padding(4, 5, 4, 5);
+            Import.Location = new Point(609, 6);
             Import.Name = "Import";
-            Import.Size = new Size(151, 43);
+            Import.Size = new Size(106, 26);
             Import.TabIndex = 11;
             Import.Text = "Import";
             Import.UseVisualStyleBackColor = true;
@@ -207,29 +212,27 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 580);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(40, 348);
             label3.Name = "label3";
-            label3.Size = new Size(427, 25);
+            label3.Size = new Size(285, 15);
             label3.TabIndex = 12;
             label3.Text = "Double-click a cell to edit a cards name or definition.";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(369, 662);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(258, 397);
             label4.Name = "label4";
-            label4.Size = new Size(464, 25);
+            label4.Size = new Size(305, 15);
             label4.TabIndex = 13;
             label4.Text = "Please select one or more rows to delete from your deck!";
             label4.Visible = false;
             // 
             // SelectDeck
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(831, 421);
+            ClientSize = new Size(857, 449);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(Import);
@@ -243,6 +246,7 @@
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "SelectDeck";
             Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

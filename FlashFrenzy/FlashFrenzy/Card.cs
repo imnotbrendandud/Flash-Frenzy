@@ -35,6 +35,7 @@ namespace FlashFrenzy
         Queue<int> finalMastery = new Queue<int>();
         Queue<int> finalIndex = new Queue<int>();
 
+
         public Card(Deck selectedDeck)
         {
             InitializeComponent(); //Initializes the card.
@@ -43,6 +44,21 @@ namespace FlashFrenzy
             button1.Font = new Font(button1.Font.FontFamily, 32); //Edits the font of the word side of a card.
             button2.Font = new Font(button1.Font.FontFamily, 24); //Edits the font of the definition side of a card.
             button7.Font = new Font(button1.Font.FontFamily, 40); //Edits the font of the start card.
+                                                                  // Handle the FormClosing event of the Card form to ensure it exits gracefully
+            this.FormClosing += (sender, e) =>
+            {
+                // Check if the form is closing by user action (X button)
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    // Prevent the default form closing behavior (closing the form)
+                    e.Cancel = true;
+
+                    // Perform any cleanup or save operations if needed
+
+                    // Exit the application
+                    Application.Exit();
+                }
+            };
         }
 
         private void button1_Click(object sender, EventArgs e)

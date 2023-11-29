@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Firesoul\\Documents\\GitHub\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {}
+    "C:\\Users\\ryans\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Firesoul\\Documents\\GitHub\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {
+    "C:\\Users\\ryans\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Firesoul\\Documents\\GitHub\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+        "projectUniqueName": "C:\\Users\\ryans\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
         "projectName": "FlashFrenzy",
-        "projectPath": "C:\\Users\\Firesoul\\Documents\\GitHub\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
-        "packagesPath": "C:\\Users\\Firesoul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Firesoul\\Documents\\GitHub\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
+        "projectPath": "C:\\Users\\ryans\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+        "packagesPath": "C:\\Users\\ryans\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ryans\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Firesoul\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ryans\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

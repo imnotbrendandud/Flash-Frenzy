@@ -1,4 +1,4 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,21 @@ namespace FlashFrenzy
         public CreateDeck()
         {
             InitializeComponent();
+            // Handle the FormClosing event of the CreateDeck form to ensure it exits gracefully
+            this.FormClosing += (sender, e) =>
+            {
+                // Check if the form is closing by user action (X button)
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    // Prevent the default form closing behavior (closing the form)
+                    e.Cancel = true;
+
+                    // Perform any cleanup or save operations if needed
+
+                    // Exit the application
+                    Application.Exit();
+                }
+            };
         }
 
 
