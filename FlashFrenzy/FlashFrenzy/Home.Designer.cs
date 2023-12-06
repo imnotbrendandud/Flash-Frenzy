@@ -35,6 +35,7 @@
             button4 = new Button();
             listBox1 = new ListBox();
             label1 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(631, 238);
+            button4.Location = new Point(632, 270);
             button4.Margin = new Padding(2);
             button4.Name = "button4";
             button4.Size = new Size(106, 31);
@@ -102,12 +103,23 @@
             label1.TabIndex = 7;
             label1.Text = "My Decks:";
             // 
+            // button2
+            // 
+            button2.Location = new Point(632, 234);
+            button2.Name = "button2";
+            button2.Size = new Size(106, 31);
+            button2.TabIndex = 8;
+            button2.Text = "Import Deck";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(831, 421);
+            Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(listBox1);
             Controls.Add(button4);
@@ -135,5 +147,6 @@
         private Button button4;
         private ListBox listBox1;
         private Label label1;
+        private Button button2;
     }
 }

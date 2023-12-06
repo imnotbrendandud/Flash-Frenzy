@@ -71,7 +71,8 @@ namespace FlashFrenzy
 
         private void btn_cD_back_Click(object sender, EventArgs e)
         {
-           
+            this.Hide();
+            Home.instance.Show();
         }
     }
 }

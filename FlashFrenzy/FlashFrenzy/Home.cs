@@ -15,6 +15,9 @@ namespace FlashFrenzy
     public partial class Home : Form
     {
         public static Home instance;
+        
+        //Home directory path for FlashFrenzy, used here and in imports.
+        private static DirectoryInfo homeDir;
 
         public static List<Deck> decks;
         public Home()
@@ -28,14 +31,30 @@ namespace FlashFrenzy
                 this.Text = "Home";
                 //This long line grabs the user's My Documents folder and combines it with FlashFrenzy to get the path ~\Documents\FlashFrenzy (hopefully).
                 //If the path doesn't exist, it creates it.
-                DirectoryInfo dir = Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents/FlashFrenzy"));
+                homeDir = Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents/FlashFrenzy"));
                 //Grabs all subdirectories in the FlashFrenzy directory.
-                DirectoryInfo[] decksDir = dir.GetDirectories();
+                DirectoryInfo[] decksDir = homeDir.GetDirectories();
                 for (int c = 0; c < decksDir.Length; c++)
                 {
                     Deck newDeck = new Deck(decksDir[c].Name, decksDir[c].FullName);
-                    string[] lines = File.ReadAllLines(Path.Combine(decksDir[c].FullName, "Terms.txt"));
-                    string[] masteries = File.ReadAllLines(Path.Combine(decksDir[c].FullName, "Mastery.txt"));
+                    string[] lines = new string[0];
+                    if (File.Exists(Path.Combine(decksDir[c].FullName, "Terms.txt")))
+                    {
+                        lines = File.ReadAllLines(Path.Combine(decksDir[c].FullName, "Terms.txt"));
+                    }
+                    else
+                    {
+                        File.Create(Path.Combine(decksDir[c].FullName, "Terms.txt"));
+                    }
+                    string[] masteries = new string[0];
+                    if (File.Exists(Path.Combine(decksDir[c].FullName, "Mastery.txt")))
+                    {
+                        masteries = File.ReadAllLines(Path.Combine(decksDir[c].FullName, "Mastery.txt"));
+                    }
+                    else
+                    {
+                        File.Create(Path.Combine(decksDir[c].FullName, "Mastery.txt"));
+                    }
                     string[] values;
                     string[] fileMastery;
 
@@ -52,7 +71,7 @@ namespace FlashFrenzy
                     decks.Add(newDeck);
                     listBox1.Items.Add(decks[c].GetName());
                 }
-            }
+            } 
             else
             {
                 foreach (Deck deck in decks)
@@ -118,6 +137,13 @@ namespace FlashFrenzy
             CreateDeck createDeck = new CreateDeck();
             this.Hide();
             createDeck.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Import import = new(homeDir);
+            this.Hide();
+            import.Show();
         }
     }
 }

@@ -19,7 +19,6 @@ namespace FlashFrenzy
 
         public SelectDeck(Deck selectedDeck)
         {
-            //To be implemented in the next sprint.
             InitializeComponent();
             label2.Text = selectedDeck.GetName();
             this.Text = selectedDeck.GetName();
@@ -43,7 +42,7 @@ namespace FlashFrenzy
             // Call Application.Exit() to close the entire application
             Application.Exit();
         }
-        //Study
+        //Study button
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (currentDeck.cards.Count > 0)
@@ -197,12 +196,25 @@ namespace FlashFrenzy
         //AutoSave function used for add, edit, and delete buttons.
         private void Autosave()
         {
-            Stream auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Terms.txt"));
-            StreamWriter autoWriter = new(auto);
-            Save(autoWriter, false);
-            auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Mastery.txt"));
-            autoWriter = new(auto);
-            Save(autoWriter, true);
+            Stream auto;
+            StreamWriter autoWriter = null;
+            try
+            {
+                auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Terms.txt"));
+                autoWriter = new(auto);
+                Save(autoWriter, false);
+                auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Mastery.txt"));
+                autoWriter = new(auto);
+                Save(autoWriter, true);
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message, "Error with saving.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (autoWriter != null)
+                {
+                    autoWriter.Close();
+                }
+            }
 
         }
 
@@ -222,7 +234,7 @@ namespace FlashFrenzy
             }
         }
 
-        //Save edits made to the datagrid.
+        //Save edits button saves edits made to the datagrid.
         private void button3_Click(object sender, EventArgs e)
         {
             Autosave();
