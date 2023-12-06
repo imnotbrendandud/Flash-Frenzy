@@ -50,13 +50,10 @@ namespace FlashFrenzy
                 // Check if the form is closing by user action (X button)
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
-                    // Prevent the default form closing behavior (closing the form)
-                    e.Cancel = true;
-
-                    // Perform any cleanup or save operations if needed
-
-                    // Exit the application
-                    Application.Exit();
+                    //Reopen SelectDeck Form
+                    SelectDeck nextForm = new SelectDeck(thisDeck);
+                    this.Hide();
+                    nextForm.Show();
                 }
             };
         }
@@ -83,7 +80,8 @@ namespace FlashFrenzy
                 startingMasteryInt--;
                 startingMastery.Enqueue(startingMasteryInt);
                 updatedMastery.Enqueue(updatedMasteryInt);
-            } else
+            }
+            else
             {
                 updatedMastery.Enqueue(updatedMasteryInt);
                 startingMastery.Enqueue(startingMasteryInt);
@@ -121,12 +119,14 @@ namespace FlashFrenzy
                 updatedMasteryInt = 10;
                 finalMastery.Enqueue(updatedMasteryInt);
                 finalIndex.Enqueue(originIndexInt);
-            } else if (updatedMasteryInt > startingMasteryInt)
+            }
+            else if (updatedMasteryInt > startingMasteryInt)
             {
                 updatedMasteryInt++;
                 finalMastery.Enqueue(updatedMasteryInt);
                 finalIndex.Enqueue(originIndexInt);
-            } else
+            }
+            else
             {
                 updatedMasteryInt++;
                 startingMastery.Enqueue(startingMasteryInt);
@@ -144,10 +144,9 @@ namespace FlashFrenzy
                     string transferredMastery = masteryTransfer.ToString();
                     thisDeck.cards[finalIndex.Dequeue()].Mastery = transferredMastery;
                 }
-                SelectDeck nextForm = new SelectDeck(thisDeck);
-                nextForm.Show();
                 this.Close();
-            } else
+            }
+            else
             {
                 currentCard = cards.Dequeue();
                 startingMasteryInt = startingMastery.Dequeue();
@@ -183,9 +182,7 @@ namespace FlashFrenzy
 
         private void button6_Click(object sender, EventArgs e)
         {
-            SelectDeck nextForm = new SelectDeck(thisDeck);
-            this.Hide();
-            nextForm.Show();
+            this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)

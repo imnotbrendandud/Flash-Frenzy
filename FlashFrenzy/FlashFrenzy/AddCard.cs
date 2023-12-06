@@ -33,12 +33,15 @@ namespace FlashFrenzy
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
                     // Prevent the default form closing behavior (closing the form)
-                    e.Cancel = true;
+                    //e.Cancel = true;
 
                     // Perform any cleanup or save operations if needed
 
                     // Exit the application
-                    Application.Exit();
+                    //Application.Exit();
+                    //Reopen SelectDeck
+                    SelectDeck nextForm = new SelectDeck(SelectDeck.currentDeck);
+                    nextForm.Show();
                 }
             };
         }

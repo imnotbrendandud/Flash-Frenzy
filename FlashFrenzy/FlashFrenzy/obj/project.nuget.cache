@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RgVDoX5hcy3DcvYSzZrBN6m62PQpTBErcxQq9PmsSyil1+smBT2TSN6TxhxF66eBzYf+gxsqXhmc1aUcH04ArA==",
+  "dgSpecHash": "uy6RhTL2238prUXrBi668KrM8FbHibdKnlrn5fxbka3IJQ9pmg4dWqWRA/ZJpHsmm15ut7v1gXAkoz+s3ER8bQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ryans\\Source\\Repos\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
+  "projectFilePath": "C:\\Users\\Firesoul\\Documents\\GitHub\\Flash-Frenzy\\FlashFrenzy\\FlashFrenzy\\FlashFrenzy.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ryans\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512"
+    "C:\\Users\\Firesoul\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512"
   ],
   "logs": []
 }

@@ -143,7 +143,7 @@
             button3.TabIndex = 4;
             button3.Text = "Save Edit";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click_1;
+            button3.Click += button3_Click;
             // 
             // button4
             // 

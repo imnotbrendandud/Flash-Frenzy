@@ -43,14 +43,15 @@ namespace FlashFrenzy
             // Call Application.Exit() to close the entire application
             Application.Exit();
         }
-
+        //Study
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (currentDeck.cards.Count > 0)
             {
                 Card nextForm = new Card(currentDeck);
                 this.Hide();
-                nextForm.Show();
+                nextForm.ShowDialog();
+                Autosave();
             }
         }
 
@@ -145,23 +146,21 @@ namespace FlashFrenzy
                         string[] row = new string[values.Length];
 
 
-                        for (int j = 1; j < values.Length; j++)
+                        for (int j = 0; j < values.Length; j++)
                         {
                             row[j] = values[j].Trim();
-                            newCard.Word = row[1];
-                            newCard.Definition = row[2];
-                            //newCard.Mastery = Int32.Parse(row[3]);
                         }
 
+                        newCard.Word = row[0];
+                        newCard.Definition = row[1];
                         currentDeck.cards.Add(newCard);
                         dataGridView1.Rows.Add(numCards++, newCard.Word, newCard.Definition, newCard.Mastery);
                     }
                 }
-
             }
             usrChanges = true;
         }
-
+        //Handles the actual saving process, including opening and closing the file.
         private void Save(StreamWriter file, bool mast)
         {
             try
@@ -199,13 +198,11 @@ namespace FlashFrenzy
         private void Autosave()
         {
             Stream auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Terms.txt"));
-            StreamWriter autoWriter = new StreamWriter(auto);
+            StreamWriter autoWriter = new(auto);
             Save(autoWriter, false);
-            auto.Close();
             auto = File.Create(Path.Combine(currentDeck.GetDirPath(), "Mastery.txt"));
-            autoWriter = new StreamWriter(auto);
+            autoWriter = new(auto);
             Save(autoWriter, true);
-            auto.Close();
 
         }
 
@@ -216,37 +213,16 @@ namespace FlashFrenzy
                 string dirtyCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 if (e.ColumnIndex == 1)
                 {
-                    //Adds card to deck instead of editing if user enters data into the last row.
-                    //(-2 because a new row is created before this event fires).
-                    if (e.RowIndex == dataGridView1.RowCount - 2)
-                    {
-                        Card newCard = new Card(currentDeck);
-                        newCard.Word = dirtyCell;
-                        currentDeck.cards.Add(newCard);
-
-                    }
-                    else
-                    {
-                        currentDeck.cards[e.RowIndex].Word = dirtyCell;
-                    }
+                    currentDeck.cards[e.RowIndex].Word = dirtyCell;
                 }
                 else if (e.ColumnIndex == 2)
                 {
-                    if (e.RowIndex == dataGridView1.RowCount - 1)
-                    {
-                        Card newCard = new Card(currentDeck);
-                        newCard.Definition = dirtyCell;
-                        currentDeck.cards.Add(newCard);
-                    }
-                    else
-                    {
-                        currentDeck.cards[e.RowIndex].Definition = dirtyCell;
-                    }
+                    currentDeck.cards[e.RowIndex].Definition = dirtyCell;
                 }
             }
         }
 
-        //Edit button (Potentially redundant)
+        //Save edits made to the datagrid.
         private void button3_Click(object sender, EventArgs e)
         {
             Autosave();
@@ -255,9 +231,9 @@ namespace FlashFrenzy
         //Add button
         private void button4_Click(object sender, EventArgs e)
         {
-            AddCard nextForm = new AddCard(currentDeck);
-            nextForm.Show();
+            AddCard nextForm = new(currentDeck);
             this.Hide();
+            nextForm.ShowDialog();
             Autosave();
         }
 
@@ -322,11 +298,6 @@ namespace FlashFrenzy
             {
                 MessageBox.Show("Please select a card to customize.");
             }
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

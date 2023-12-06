@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,32 @@ namespace FlashFrenzy
                 decks = new List<Deck>();
                 instance = this;
                 this.Text = "Home";
+                //This long line grabs the user's My Documents folder and combines it with FlashFrenzy to get the path ~\Documents\FlashFrenzy (hopefully).
+                //If the path doesn't exist, it creates it.
+                DirectoryInfo dir = Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents/FlashFrenzy"));
+                //Grabs all subdirectories in the FlashFrenzy directory.
+                DirectoryInfo[] decksDir = dir.GetDirectories();
+                for (int c = 0; c < decksDir.Length; c++)
+                {
+                    Deck newDeck = new Deck(decksDir[c].Name, decksDir[c].FullName);
+                    string[] lines = File.ReadAllLines(Path.Combine(decksDir[c].FullName, "Terms.txt"));
+                    string[] masteries = File.ReadAllLines(Path.Combine(decksDir[c].FullName, "Mastery.txt"));
+                    string[] values;
+                    string[] fileMastery;
+
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        Card newCard = new Card(newDeck);
+                        values = lines[i].ToString().Split('&');
+                        fileMastery = masteries[i].ToString().Split('&');
+                        newCard.Word = values[0].Trim();
+                        newCard.Definition = values[1].Trim();
+                        newCard.Mastery = fileMastery[0].Trim();
+                        newDeck.cards.Add(newCard);
+                    }
+                    decks.Add(newDeck);
+                    listBox1.Items.Add(decks[c].GetName());
+                }
             }
             else
             {
